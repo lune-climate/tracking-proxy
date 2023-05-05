@@ -1,6 +1,23 @@
 # Nginx Proxy for Mixpanel
 An example nginx config that serves as a proxy to Mixpanel's Ingestion API and JavaScript library endpoints. To learn more, visit our [Self-Hosted Tracking Docs](https://developer.mixpanel.com/docs/self-hosted-tracking).
 
+
+## Development and release
+
+### Developement
+
+1. Make changes to nginx.conf, Dockerfile or any other file.
+2. Build docker image: `make`
+3. Locally run with:  `docker run --rm -p 8081:80 mixpanel-proxy` (listens on port 8081)
+
+### Release
+
+1. Ensure you are on master and have no uncommitted changes
+2. Build docker image: `make`
+3. Tag docker image: `make tag`
+4. Publish to dockerhub: `make push`
+
+
 ## Installation
 
 There are a few ways you can use this repo to deploy a server that can be use to proxy Mixpanel API requests: one-click deploy to cloud, build a docker image, or copy and paste the nginx settings to your own nginx config file.
